@@ -51,7 +51,7 @@
 
 // MONEY_SUPPLY - total number coins to be generated
 #define MONEY_SUPPLY                                    UINT64_C(2400000000000000000)
-#define EMISSION_SPEED_FACTOR_PER_MINUTE                (24)
+#define EMISSION_SPEED_FACTOR_PER_MINUTE                (4)
 #define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)300000000000) // 3 * pow(10, 11)
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
@@ -72,8 +72,8 @@
 #define ORPHANED_BLOCKS_MAX_COUNT                       100
 
 
-#define DIFFICULTY_TARGET_V2                            48  // seconds
-#define DIFFICULTY_TARGET_V1                            48  // seconds - before first fork
+#define DIFFICULTY_TARGET_V2                            60  // seconds
+#define DIFFICULTY_TARGET_V1                            60  // seconds - before first fork
 #define DIFFICULTY_WINDOW                               24 * 60 * 60 / DIFFICULTY_TARGET_V2 // blocks
 #define DIFFICULTY_LAG                                  15  // !!!
 #define DIFFICULTY_CUT                                  60  // timestamps to cut after sorting
@@ -157,7 +157,7 @@ namespace config
   uint16_t const RPC_DEFAULT_PORT = 8081;
   uint16_t const ZMQ_RPC_DEFAULT_PORT = 8082;
   boost::uuids::uuid const NETWORK_ID = { {
-      0x10, 0x10, 0x01, 0x08, 0x20, 0x18, 0x10, 0x10, 0x10, 0x10, 0x20, 0x20, 0x4c, 0x4f, 0x56, 0x45
+      0x10, 0x10, 0x04, 0x08, 0x20, 0x18, 0x10, 0x10, 0x10, 0x10, 0x20, 0x20, 0x4c, 0x4f, 0x56, 0x45
     } }; // Bender's nightmare
   std::string const GENESIS_TX = "013c01ff00018080bce2c886ba8a02029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101b6d85b5867a80a028c901b84d0600c7ffe498504e9eea9dcd7c5dd2f5f4c50f1";
   uint32_t const GENESIS_NONCE = 10000;
@@ -171,7 +171,7 @@ namespace config
     uint16_t const RPC_DEFAULT_PORT = 18081;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 18082;
     boost::uuids::uuid const NETWORK_ID = { {
-        0x10, 0x10, 0x01, 0x08, 0x20, 0x18, 0x10, 0x10, 0x10, 0x10, 0x20, 0x20, 0x4c, 0x4f, 0x56, 0x46
+        0x10, 0x10, 0x04, 0x08, 0x20, 0x18, 0x10, 0x10, 0x10, 0x10, 0x20, 0x20, 0x4c, 0x4f, 0x56, 0x46
       } }; // Bender's daydream
     std::string const GENESIS_TX = "013c01ff00018080bce2c886ba8a02029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101b6d85b5867a80a028c901b84d0600c7ffe498504e9eea9dcd7c5dd2f5f4c50f1";
     uint32_t const GENESIS_NONCE = 10001;
@@ -186,7 +186,7 @@ namespace config
     uint16_t const RPC_DEFAULT_PORT = 28081;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 28082;
     boost::uuids::uuid const NETWORK_ID = { {
-        0x10, 0x10, 0x01, 0x08, 0x20, 0x18, 0x10, 0x10, 0x10, 0x10, 0x20, 0x20, 0x4c, 0x4f, 0x56, 0x47
+        0x10, 0x10, 0x04, 0x08, 0x20, 0x18, 0x10, 0x10, 0x10, 0x10, 0x20, 0x20, 0x4c, 0x4f, 0x56, 0x47
       } }; 
     std::string const GENESIS_TX = "013c01ff00018080bce2c886ba8a02029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101b6d85b5867a80a028c901b84d0600c7ffe498504e9eea9dcd7c5dd2f5f4c50f1";
     uint32_t const GENESIS_NONCE = 10002;
