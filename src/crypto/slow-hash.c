@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 //
 // All rights reserved.
 //
@@ -244,7 +244,7 @@ STATIC INLINE int force_software_aes(void)
   if (use != -1)
     return use;
 
-  const char *env = getenv("MONERO_USE_SOFTWARE_AES");
+  const char *env = getenv("INSPA_USE_SOFTWARE_AES");
   if (!env) {
     use = 0;
   }
@@ -304,7 +304,7 @@ STATIC INLINE void aes_256_assist2(__m128i* t1, __m128i * t3)
  * of the AES encryption used to fill (and later, extract randomness from)
  * the large 2MB buffer.  Note that CryptoNight does not use a completely
  * standard AES encryption for its buffer expansion, so do not copy this
- * function outside of Monero without caution!  This version uses the hardware
+ * function outside of InSPa without caution!  This version uses the hardware
  * AESKEYGENASSIST instruction to speed key generation, and thus requires
  * CPU AES support.
  * For more information about these functions, see page 19 of Intel's AES instructions
@@ -535,7 +535,7 @@ void slow_hash_free_state(void)
 }
 
 /**
- * @brief the hash function implementing CryptoNight, used for the Monero proof-of-work
+ * @brief the hash function implementing CryptoNight, used for the InSPa proof-of-work
  *
  * Computes the hash of <data> (which consists of <length> bytes), returning the
  * hash in <hash>.  The CryptoNight hash operates by first using Keccak 1600,

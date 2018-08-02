@@ -1,8 +1,8 @@
 /// @file
-/// @author rfree (current maintainer in monero.cc project)
+/// @author rfree (current maintainer in inspacoin.cc project)
 /// @brief base for connection, contains e.g. the ratelimit hooks
 
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 // 
 // All rights reserved.
 // 
@@ -79,8 +79,8 @@
 // TODO:
 #include "net/network_throttle-detail.hpp"
 
-#undef MONERO_DEFAULT_LOG_CATEGORY
-#define MONERO_DEFAULT_LOG_CATEGORY "net.p2p"
+#undef INSPA_DEFAULT_LOG_CATEGORY
+#define INSPA_DEFAULT_LOG_CATEGORY "net.p2p"
 
 // ################################################################################################
 // local (TU local) headers
@@ -161,7 +161,7 @@ connection_basic::connection_basic(boost::asio::io_service& io_service, std::ato
 	try { boost::system::error_code e; remote_addr_str = socket_.remote_endpoint(e).address().to_string(); } catch(...){} ;
 
 	_note("Spawned connection p2p#"<<mI->m_peer_number<<" to " << remote_addr_str << " currently we have sockets count:" << m_ref_sock_count);
-	//boost::filesystem::create_directories("log/dr-monero/net/");
+	//boost::filesystem::create_directories("log/dr-inspacoin/net/");
 }
 
 connection_basic::~connection_basic() noexcept(false) {

@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 // 
 // All rights reserved.
 // 
@@ -100,7 +100,7 @@ namespace daemonizer
     }
     else
     {
-      //LOG_PRINT_L0("Monero '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL);
+      //LOG_PRINT_L0("InSPa '" << INSPA_RELEASE_NAME << "' (v" << INSPA_VERSION_FULL);
       return executor.run_interactive(vm);
     }
   }

@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 // 
 // All rights reserved.
 // 
@@ -613,10 +613,10 @@ std::string get_nix_version_display_string()
   {
     ub_ctx *ctx = ub_ctx_create();
     if (!ctx) return false; // cheat a bit, should not happen unless OOM
-    char *monero = strdup("monero"), *unbound = strdup("unbound");
-    ub_ctx_zone_add(ctx, monero, unbound); // this calls ub_ctx_finalize first, then errors out with UB_SYNTAX
+    char *inspacoin = strdup("inspacoin"), *unbound = strdup("unbound");
+    ub_ctx_zone_add(ctx, inspacoin, unbound); // this calls ub_ctx_finalize first, then errors out with UB_SYNTAX
     free(unbound);
-    free(monero);
+    free(inspacoin);
     // if no threads, bails out early with UB_NOERROR, otherwise fails with UB_AFTERFINAL id already finalized
     bool with_threads = ub_ctx_async(ctx, 1) != 0; // UB_AFTERFINAL is not defined in public headers, check any error
     ub_ctx_delete(ctx);

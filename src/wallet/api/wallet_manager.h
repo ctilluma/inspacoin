@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 //
 // All rights reserved.
 //
@@ -33,7 +33,7 @@
 #include "net/http_client.h"
 #include <string>
 
-namespace Monero {
+namespace InSPa {
 
 class WalletManagerImpl : public WalletManager
 {
@@ -97,4 +97,4 @@ private:
 
 } // namespace
 
-namespace Bitmonero = Monero;
+namespace Bitinspacoin = InSPa;

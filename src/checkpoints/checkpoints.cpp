@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 //
 // All rights reserved.
 //
@@ -40,8 +40,8 @@ using namespace epee;
 #include "storages/portable_storage_template_helper.h" // epee json include
 #include "serialization/keyvalue_serialization.h"
 
-#undef MONERO_DEFAULT_LOG_CATEGORY
-#define MONERO_DEFAULT_LOG_CATEGORY "checkpoints"
+#undef INSPA_DEFAULT_LOG_CATEGORY
+#define INSPA_DEFAULT_LOG_CATEGORY "checkpoints"
 
 namespace cryptonote
 {
@@ -252,23 +252,23 @@ namespace cryptonote
   {
     std::vector<std::string> records;
 
-    // All four MoneroPulse domains have DNSSEC on and valid
-    static const std::vector<std::string> dns_urls = { "checkpoints.moneropulse.se"
-						     , "checkpoints.moneropulse.org"
-						     , "checkpoints.moneropulse.net"
-						     , "checkpoints.moneropulse.co"
+    // All four InSPaPulse domains have DNSSEC on and valid
+    static const std::vector<std::string> dns_urls = { "checkpoints.inspacoinpulse.se"
+						     , "checkpoints.inspacoinpulse.org"
+						     , "checkpoints.inspacoinpulse.net"
+						     , "checkpoints.inspacoinpulse.co"
     };
 
-    static const std::vector<std::string> testnet_dns_urls = { "testpoints.moneropulse.se"
-							     , "testpoints.moneropulse.org"
-							     , "testpoints.moneropulse.net"
-							     , "testpoints.moneropulse.co"
+    static const std::vector<std::string> testnet_dns_urls = { "testpoints.inspacoinpulse.se"
+							     , "testpoints.inspacoinpulse.org"
+							     , "testpoints.inspacoinpulse.net"
+							     , "testpoints.inspacoinpulse.co"
     };
 
-    static const std::vector<std::string> stagenet_dns_urls = { "stagenetpoints.moneropulse.se"
-                   , "stagenetpoints.moneropulse.org"
-                   , "stagenetpoints.moneropulse.net"
-                   , "stagenetpoints.moneropulse.co"
+    static const std::vector<std::string> stagenet_dns_urls = { "stagenetpoints.inspacoinpulse.se"
+                   , "stagenetpoints.inspacoinpulse.org"
+                   , "stagenetpoints.inspacoinpulse.net"
+                   , "stagenetpoints.inspacoinpulse.co"
     };
 
     if (!tools::dns_utils::load_txt_records_from_dns(records, nettype == TESTNET ? testnet_dns_urls : nettype == STAGENET ? stagenet_dns_urls : dns_urls))

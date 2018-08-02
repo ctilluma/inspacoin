@@ -57,8 +57,8 @@
 
 //#pragma comment(lib, "shlwapi.lib")
 
-#undef MONERO_DEFAULT_LOG_CATEGORY
-#define MONERO_DEFAULT_LOG_CATEGORY "net.http"
+#undef INSPA_DEFAULT_LOG_CATEGORY
+#define INSPA_DEFAULT_LOG_CATEGORY "net.http"
 
 extern epee::critical_section gregexp_lock;
 

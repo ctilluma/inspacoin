@@ -1,31 +1,31 @@
-name: monero
+name: inspacoin
 version: 0.11.1.0-1
-summary: "Monero: the secure, private, untraceable cryptocurrency https://getmonero.org"
+summary: "InSPa: the secure, private, untraceable cryptocurrency https://getinspacoin.org"
 description: |
-    Monero is a private, secure, untraceable, decentralised digital currency.
+    InSPa is a private, secure, untraceable, decentralised digital currency.
     You are your bank, you control your funds, and nobody can trace your transfers
     unless you allow them to do so.
 grade: devel
 confinement: strict
 
 apps:
-    monerod:
+    inspacoind:
         daemon: forking
         command: |
-          monerod-wrapper --detach --data-dir ${SNAP_COMMON} --config-file ${SNAP_USER_DATA}/etc/monerod.conf
+          inspacoind-wrapper --detach --data-dir ${SNAP_COMMON} --config-file ${SNAP_USER_DATA}/etc/inspacoind.conf
         plugs:
             - network
             - network-bind
-    monero-wallet-rpc:
+    inspacoin-wallet-rpc:
         command: |
-          monero-wallet-rpc --log-file ${SNAP_USER_DATA}
+          inspacoin-wallet-rpc --log-file ${SNAP_USER_DATA}
         plugs:
             - home
             - network
             - network-bind
-    monero-wallet-cli:
+    inspacoin-wallet-cli:
         command: |
-          monero-wallet-cli --log-file ${SNAP_USER_DATA}
+          inspacoin-wallet-cli --log-file ${SNAP_USER_DATA}
         plugs:
             - home
             - network
@@ -71,8 +71,8 @@ parts:
         plugin: dump
         source: .
         organize:
-            contrib/snap/monerod.conf: etc/monerod.conf
-            contrib/snap/monerod-wrapper: bin/monerod-wrapper
+            contrib/snap/inspacoind.conf: etc/inspacoind.conf
+            contrib/snap/inspacoind-wrapper: bin/inspacoind-wrapper
         prime:
             - etc
             - bin

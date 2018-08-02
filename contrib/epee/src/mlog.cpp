@@ -35,12 +35,12 @@
 #include "string_tools.h"
 #include "misc_log_ex.h"
 
-#undef MONERO_DEFAULT_LOG_CATEGORY
-#define MONERO_DEFAULT_LOG_CATEGORY "logging"
+#undef INSPA_DEFAULT_LOG_CATEGORY
+#define INSPA_DEFAULT_LOG_CATEGORY "logging"
 
 #define MLOG_BASE_FORMAT "%datetime{%Y-%M-%d %H:%m:%s.%g}\t%thread\t%level\t%logger\t%loc\t%msg"
 
-#define MLOG_LOG(x) CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,MONERO_DEFAULT_LOG_CATEGORY) << x
+#define MLOG_LOG(x) CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,INSPA_DEFAULT_LOG_CATEGORY) << x
 
 using namespace epee;
 
@@ -122,7 +122,7 @@ void mlog_configure(const std::string &filename_base, bool console, const std::s
   el::Configurations c;
   c.setGlobally(el::ConfigurationType::Filename, filename_base);
   c.setGlobally(el::ConfigurationType::ToFile, "true");
-  const char *log_format = getenv("MONERO_LOG_FORMAT");
+  const char *log_format = getenv("INSPA_LOG_FORMAT");
   if (!log_format)
     log_format = MLOG_BASE_FORMAT;
   c.setGlobally(el::ConfigurationType::Format, log_format);
@@ -189,12 +189,12 @@ void mlog_configure(const std::string &filename_base, bool console, const std::s
     }
   });
   mlog_set_common_prefix();
-  const char *monero_log = getenv("MONERO_LOGS");
-  if (!monero_log)
+  const char *inspacoin_log = getenv("INSPA_LOGS");
+  if (!inspacoin_log)
   {
-    monero_log = get_default_categories(0);
+    inspacoin_log = get_default_categories(0);
   }
-  mlog_set_log(monero_log);
+  mlog_set_log(inspacoin_log);
 }
 
 void mlog_set_categories(const char *categories)

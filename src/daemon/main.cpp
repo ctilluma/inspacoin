@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 //
 // All rights reserved.
 //
@@ -50,8 +50,8 @@
 #include "common/stack_trace.h"
 #endif // STACK_TRACE
 
-#undef MONERO_DEFAULT_LOG_CATEGORY
-#define MONERO_DEFAULT_LOG_CATEGORY "daemon"
+#undef INSPA_DEFAULT_LOG_CATEGORY
+#define INSPA_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace po = boost::program_options;
 namespace bf = boost::filesystem;
@@ -119,16 +119,16 @@ int main(int argc, char const * argv[])
 
     if (command_line::get_arg(vm, command_line::arg_help))
     {
-      std::cout << "Monero '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL << ")" << ENDL << ENDL;
+      std::cout << "InSPa '" << INSPA_RELEASE_NAME << "' (v" << INSPA_VERSION_FULL << ")" << ENDL << ENDL;
       std::cout << "Usage: " + std::string{argv[0]} + " [options|settings] [daemon_command...]" << std::endl << std::endl;
       std::cout << visible_options << std::endl;
       return 0;
     }
 
-    // Monero Version
+    // InSPa Version
     if (command_line::get_arg(vm, command_line::arg_version))
     {
-      std::cout << "Monero '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL << ")" << ENDL;
+      std::cout << "InSPa '" << INSPA_RELEASE_NAME << "' (v" << INSPA_VERSION_FULL << ")" << ENDL;
       return 0;
     }
 
@@ -181,7 +181,7 @@ int main(int argc, char const * argv[])
     }
 
     // data_dir
-    //   default: e.g. ~/.bitmonero/ or ~/.bitmonero/testnet
+    //   default: e.g. ~/.bitinspacoin/ or ~/.bitinspacoin/testnet
     //   if data-dir argument given:
     //     absolute path
     //     relative path: relative to cwd
@@ -281,7 +281,7 @@ int main(int argc, char const * argv[])
       tools::set_max_concurrency(command_line::get_arg(vm, daemon_args::arg_max_concurrency));
 
     // logging is now set up
-    MGINFO("Monero '" << MONERO_RELEASE_NAME << "' (v" << MONERO_VERSION_FULL << ")");
+    MGINFO("InSPa '" << INSPA_RELEASE_NAME << "' (v" << INSPA_VERSION_FULL << ")");
 
     MINFO("Moving from main() into the daemonize now.");
 

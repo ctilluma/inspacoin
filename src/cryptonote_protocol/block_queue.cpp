@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2018, The Monero Project
+// Copyright (c) 2017-2018, The InSPa Project
 // 
 // All rights reserved.
 // 
@@ -35,8 +35,8 @@
 #include "cryptonote_protocol_defs.h"
 #include "block_queue.h"
 
-#undef MONERO_DEFAULT_LOG_CATEGORY
-#define MONERO_DEFAULT_LOG_CATEGORY "cn.block_queue"
+#undef INSPA_DEFAULT_LOG_CATEGORY
+#define INSPA_DEFAULT_LOG_CATEGORY "cn.block_queue"
 
 namespace std {
   static_assert(sizeof(size_t) <= sizeof(boost::uuids::uuid), "boost::uuids::uuid too small");

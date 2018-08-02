@@ -1,6 +1,6 @@
-// Word list created by Monero contributor Shrikez
+// Word list created by InSPa contributor Shrikez
 // 
-// Copyright (c) 2014-2018, The Monero Project
+// Copyright (c) 2014-2018, The InSPa Project
 // 
 // All rights reserved.
 // 
