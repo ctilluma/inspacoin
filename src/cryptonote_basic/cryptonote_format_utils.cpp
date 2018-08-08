@@ -712,6 +712,7 @@ namespace cryptonote
       case 9:
       case 6:
       case 5:
+      case 4:
       case 3:
       case 0:
         default_decimal_point = decimal_point;
@@ -732,7 +733,7 @@ namespace cryptonote
       decimal_point = default_decimal_point;
     switch (std::atomic_load(&default_decimal_point))
     {
-      case 5:
+      case 4:
         return "inspacoin";
       default:
         ASSERT_MES_AND_THROW("Invalid decimal point specification: " << default_decimal_point);
