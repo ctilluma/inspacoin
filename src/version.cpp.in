@@ -1,6 +1,6 @@
 #define DEF_INSPA_VERSION_TAG "@VERSIONTAG@"
-#define DEF_INSPA_VERSION "0.12.3.0-master"
-#define DEF_INSPA_RELEASE_NAME "Lithium Luna"
+#define DEF_INSPA_VERSION "0.01.01.0-master"
+#define DEF_INSPA_RELEASE_NAME "Fiery Fehu"
 #define DEF_INSPA_VERSION_FULL DEF_INSPA_VERSION "-" DEF_INSPA_VERSION_TAG
 
 #include "version.h"
