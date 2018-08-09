@@ -55,9 +55,9 @@
 #define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)2400000000) // 3 * pow(10, 11)
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
-#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    24000 //size of block (bytes) after which reward for block calculated using block size
+#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    48000 //size of block (bytes) after which reward for block calculated using block size
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1    24000 //size of block (bytes) after which reward for block calculated using block size - before first fork
-#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V5    24000 //size of block (bytes) after which reward for block calculated using block size - second change, from v5
+#define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V5    240000 //size of block (bytes) after which reward for block calculated using block size - second change, from v5
 #define CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE          600
 #define CRYPTONOTE_DISPLAY_DECIMAL_POINT                4
 // COIN - number of smallest units in one coin
@@ -78,6 +78,186 @@
 #define DIFFICULTY_LAG                                  15  // !!!
 #define DIFFICULTY_CUT                                  60  // timestamps to cut after sorting
 #define DIFFICULTY_BLOCKS_COUNT                         DIFFICULTY_WINDOW + DIFFICULTY_LAG
+
+    }
+    return false;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_peer_id()
+  {
+    m_config.m_peer_id  = crypto::rand<uint64_t>();
+    return true;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_config()
+  {
+    return make_default_peer_id();
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::block_host(const epee::net_utils::network_address &addr, time_t seconds)
+  {
+    CRITICAL_REGION_LOCAL(m_blocked_hosts_lock);
+    m_blocked_hosts[addr.host_str()] = time(nullptr) + seconds;
+
+    // drop any connection to that IP
+    std::list<boost::uuids::uuid> conns;
+    m_net_server.get_config_object().foreach_connection([&](const p2p_connection_context& cntxt)
+    {
+      if (cntxt.m_remote_address.is_same_host(addr))
+      {
+        conns.push_back(cntxt.m_connection_id);
+      }
+      return true;
+    }
+    return false;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_peer_id()
+  {
+    m_config.m_peer_id  = crypto::rand<uint64_t>();
+    return true;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_config()
+  {
+    return make_default_peer_id();
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::block_host(const epee::net_utils::network_address &addr, time_t seconds)
+  {
+    CRITICAL_REGION_LOCAL(m_blocked_hosts_lock);
+    m_blocked_hosts[addr.host_str()] = time(nullptr) + seconds;
+
+    // drop any connection to that IP
+    std::list<boost::uuids::uuid> conns;
+    m_net_server.get_config_object().foreach_connection([&](const p2p_connection_context& cntxt)
+    {
+      if (cntxt.m_remote_address.is_same_host(addr))
+      {
+        conns.push_back(cntxt.m_connection_id);
+      }
+      return true;
+    }
+    return false;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_peer_id()
+  {
+    m_config.m_peer_id  = crypto::rand<uint64_t>();
+    return true;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_config()
+  {
+    return make_default_peer_id();
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::block_host(const epee::net_utils::network_address &addr, time_t seconds)
+  {
+    CRITICAL_REGION_LOCAL(m_blocked_hosts_lock);
+    m_blocked_hosts[addr.host_str()] = time(nullptr) + seconds;
+
+    // drop any connection to that IP
+    std::list<boost::uuids::uuid> conns;
+    m_net_server.get_config_object().foreach_connection([&](const p2p_connection_context& cntxt)
+    {
+      if (cntxt.m_remote_address.is_same_host(addr))
+      {
+        conns.push_back(cntxt.m_connection_id);
+      }
+      return true;
+    }
+    return false;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_peer_id()
+  {
+    m_config.m_peer_id  = crypto::rand<uint64_t>();
+    return true;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_config()
+  {
+    return make_default_peer_id();
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::block_host(const epee::net_utils::network_address &addr, time_t seconds)
+  {
+    CRITICAL_REGION_LOCAL(m_blocked_hosts_lock);
+    m_blocked_hosts[addr.host_str()] = time(nullptr) + seconds;
+
+    // drop any connection to that IP
+    std::list<boost::uuids::uuid> conns;
+    m_net_server.get_config_object().foreach_connection([&](const p2p_connection_context& cntxt)
+    {
+      if (cntxt.m_remote_address.is_same_host(addr))
+      {
+        conns.push_back(cntxt.m_connection_id);
+      }
+      return true;
+    }
+    return false;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_peer_id()
+  {
+    m_config.m_peer_id  = crypto::rand<uint64_t>();
+    return true;
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::make_default_config()
+  {
+    return make_default_peer_id();
+  }
+  //-----------------------------------------------------------------------------------
+  template<class t_payload_net_handler>
+  bool node_server<t_payload_net_handler>::block_host(const epee::net_utils::network_address &addr, time_t seconds)
+  {
+    CRITICAL_REGION_LOCAL(m_blocked_hosts_lock);
+    m_blocked_hosts[addr.host_str()] = time(nullptr) + seconds;
+
+    // drop any connection to that IP
+    std::list<boost::uuids::uuid> conns;
+    m_net_server.get_config_object().foreach_connection([&](const p2p_connection_context& cntxt)
+    {
+      if (cntxt.m_remote_address.is_same_host(addr))
+      {
+        conns.push_back(cntxt.m_connection_id);
+      }
+      return true;
+    });
+    for (const auto &c: conns)
+      m_net_server.get_config_object().close(c);
+
+    });
+    for (const auto &c: conns)
+      m_net_server.get_config_object().close(c);
+
+    });
+    for (const auto &c: conns)
+      m_net_server.get_config_object().close(c);
+
+    });
+    for (const auto &c: conns)
+      m_net_server.get_config_object().close(c);
+
+    });
+    for (const auto &c: conns)
+      m_net_server.get_config_object().close(c);
 
 
 #define CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_SECONDS_V1   DIFFICULTY_TARGET_V1 * CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS
@@ -159,7 +339,7 @@ namespace config
   boost::uuids::uuid const NETWORK_ID = { {
       0x10, 0x10, 0x04, 0x08, 0x20, 0x18, 0x10, 0x10, 0x10, 0x10, 0x20, 0x20, 0x4c, 0x4f, 0x56, 0x45
     } }; // Bender's nightmare
-  std::string const GENESIS_TX = "013c01ff00018080bce2c886ba8a02029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101b6d85b5867a80a028c901b84d0600c7ffe498504e9eea9dcd7c5dd2f5f4c50f1";
+  std::string const GENESIS_TX = "013c01ff0001bce2c886ba8a02029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101ea7269375a54ebe91bd6a7e3f8721e78545355deb861c89b6733f4894bff539a";
   uint32_t const GENESIS_NONCE = 10000;
 
   namespace testnet
